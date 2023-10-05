@@ -24,3 +24,8 @@ Homework and other task regarding  the Python-part of SWP
 * Zufallszahl wurde mit random.randint() gelöst: 
   * Methode, die ganzzahlen mit immer der selben Wahrscheinlichkeit generiert.
   * Parameter: (kleinste Zahl, größte Zahl - ausgeschlossen)
+ 
+
+Erweiterung 1.1:
+* Globale Variablen wurden entfernt. Stattdessen werden die benötigte Listen, Dictionaries, etc. als parameter mitgegeben bzw. returned
+* jegliche Fixzahl i Code (außer 0 & 1) wurde durch einen Parameter abgelöst für mehr dynamik
