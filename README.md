@@ -1,4 +1,3 @@
-![grafik](https://github.com/LivioNovak/SWP_Python/assets/97615428/b5d7e844-0bbd-4773-9d63-cc5d8d3a5e3c)# SWP-Python
 Homework and other task regarding  the Python-part of SWP
 
 ---
