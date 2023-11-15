@@ -3,7 +3,7 @@ Homework and other task regarding  the Python-part of SWP
 
 ---
 
-## Aufgabe 01: 
+## Aufgabe 01: Lotto
 *Aufgabenstellung:* 
 > Programmiere Lottoziehung als Methode
 > * [ ] random.getrand() 
@@ -24,3 +24,23 @@ Homework and other task regarding  the Python-part of SWP
 * Zufallszahl wurde mit random.randint() gelöst: 
   * Methode, die ganzzahlen mit immer der selben Wahrscheinlichkeit generiert.
   * Parameter: (kleinste Zahl, größte Zahl - ausgeschlossen)
+
+
+--- 
+
+## Aufgabe 02: Poker
+*Aufgabenstellung:*
+> Pokerspielsimulator als Aufgabe über mehrere Wochen:
+> * [X] überlege wie man die Pokerkarten modellieren könnte (vier Farben, 13 Symbole)
+> * [X] gib zufällig fünf Karten
+> * [X] recherchiere welche Kombinationen beim Pokerspiel exisiteren
+> * [X] schreibe Funktionen fur die Kombinationen Paar, Drillinge, Poker, Flash, Strasse usw.
+> * [X] spiele 100000 mal und zähle die Anzahl der verschiedenen Kombinationen
+> * [X] berechne den prozentuellen Anteil einer Kombination zu der Gesamtspieleanzahl
+> * [X] recherchiere die richtige Anteile im Netz und vergleiche die Ergebnisse
+
+*Anmerkungen:*
+
+* Jede gezogene Karte wird als Objekt gespeichert, die 1 Zahl für den Wert & 1 für die Farbe speichert
+* Konstanten werden in einer eigenen Datei angelegt (constants.py)
+
