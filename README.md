@@ -1,4 +1,3 @@
-# SWP-Python
 Homework and other task regarding  the Python-part of SWP
 
 ---
@@ -26,7 +25,16 @@ Homework and other task regarding  the Python-part of SWP
   * Parameter: (kleinste Zahl, größte Zahl - ausgeschlossen)
 
 
+*Erweiterung 1.1:*
+* Globale Variablen wurden entfernt. Stattdessen werden die benötigte Listen, Dictionaries, etc. als parameter mitgegeben bzw. returned
+* jegliche Fixzahl i Code (außer 0 & 1) wurde durch einen Parameter abgelöst für mehr dynamik
+* Parameter: ( [Untergrenze(inklusiv)] , [Obergrenze(exklusiv)] )
+ 
+
+
 --- 
+
+<br/>
 
 ## Aufgabe 02: Poker
 *Aufgabenstellung:*
@@ -44,3 +52,4 @@ Homework and other task regarding  the Python-part of SWP
 * Jede gezogene Karte wird als Objekt gespeichert, die 1 Zahl für den Wert & 1 für die Farbe speichert
 * Konstanten werden in einer eigenen Datei angelegt (constants.py)
 
+  
