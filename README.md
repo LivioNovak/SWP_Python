@@ -52,4 +52,12 @@ Homework and other task regarding  the Python-part of SWP
 * Jede gezogene Karte wird als Objekt gespeichert, die 1 Zahl für den Wert & 1 für die Farbe speichert
 * Konstanten werden in einer eigenen Datei angelegt (constants.py)
 
-  
+*Erweiterung 1.1:*
+* Funktionen für Kombinationen wurden in ein eigenes File *combinations.py* ausgelagert
+* unittests wurden in *tests/unittests.py" eingefügt. Überprüft werden folgende fünf Funktionen:
+  * get_value()
+  * royal_flush()
+  * straight_flush()
+  * four_of_a_kind()
+  * full_house() 
+ 
