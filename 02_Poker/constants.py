@@ -1,7 +1,7 @@
 # declare constants
 
 # game logic
-TOTAL_PLAYS = 1000000
+TOTAL_PLAYS = 100000
 DRAW_CARDS = 5
 SYMBOLS = 13
 COLORS = 4

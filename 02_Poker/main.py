@@ -1,132 +1,7 @@
 import random
-import constants
+import constants as con
+import combinations as cmb
 
-
-###############
-# combinations
-###############
-
-def royal_flush(cards):
-    # 1. check for being a straight_flush
-    if straight_flush(cards):
-        # highest possible straights starts with a 10
-        return cards[0].value == 10
-
-    return False
-
-
-def straight_flush(cards):
-    # 1. check for being a flush
-    if flush(cards):
-        # 2. check for being a straight
-        if straight(cards):
-            return True
-
-    return False
-
-
-def four_of_a_kind(cards):
-    for selected_card in cards[:2]:
-        same_value = 0
-        for compare_card in cards:
-            if selected_card.value == compare_card.value:
-                same_value += 1
-
-        if same_value == 4:
-            return True
-
-    return False
-
-    # check for being a 4 of a kind
-    return cards_match_base == 4
-
-
-def full_house(cards):
-    # full house is a combination of one pair and one three-of-a-kind
-    # 1. check for containing a three of a kind
-    if three_of_a_kind(cards):
-        # 2. check for containing a pair
-        if pair(cards):
-            return True
-
-    return False
-
-
-def straight(cards):
-    # special case: a street can start with an ace. has to continue with 2, 3, 4, 5
-    if cards[0].value == 14:
-        match_list = [2, 3, 4, 5]
-        for i in range(len(cards) - 2):
-            if cards[1 + i].value != match_list[i]:
-                return False
-
-        return True
-
-    # every following card must be one value higher than the previous
-    for i in range(len(cards) - 1):
-        if cards[i].value != cards[i + 1].value - 1:
-            return False
-
-    return True
-
-
-def flush(cards):
-    color = cards[0].color
-    for sel_card in cards[1:]:
-        if color != sel_card.color:
-            return False
-
-    return True
-
-
-def three_of_a_kind(cards):
-    for sel_card in cards:
-        same_value = 0
-        for compare_card in cards:
-            if sel_card.value == compare_card.value:
-                same_value += 1
-
-        if same_value == 3:
-            return True
-
-    return False
-
-
-def two_pairs(cards):
-    num_of_cards_of_pairs = 0
-    for sel_card in cards:
-        same_value = 0
-        for compare_card in cards:
-            if sel_card.value == compare_card.value:
-                same_value += 1
-
-        # a pair has 2 cards, so this gets called twice per pair
-        if same_value == 2:
-            num_of_cards_of_pairs += 1
-
-        # if 4 cards belong to pairs, there's a total of 2 pairs
-        if num_of_cards_of_pairs == 4:
-            return True
-
-    return False
-
-
-def pair(cards):
-    for sel_card in cards:
-        same_value = 0
-        for compare_card in cards:
-            if sel_card.value == compare_card.value:
-                same_value += 1
-
-        if same_value == 2:
-            return True
-
-    return False
-
-
-##############
-# others
-##############
 
 class card:
     def __init__(self, numerical_card, symbols):
@@ -134,7 +9,6 @@ class card:
         self.color = get_color(numerical_card, symbols)
 
     def __str__(self):
-
         if self.value == 11:
             tmp_str = 'J_'
         elif self.value == 12:
@@ -147,13 +21,13 @@ class card:
             tmp_str = f'{str(self.value)}_'
 
         if self.color == 0:
-            tmp_str += constants.CLUB
+            tmp_str += con.CLUB
         elif self.color == 1:
-            tmp_str += constants.DIAMOND
+            tmp_str += con.DIAMOND
         elif self.color == 2:
-            tmp_str += constants.HEART
+            tmp_str += con.HEART
         elif self.color == 3:
-            tmp_str += constants.SPADE
+            tmp_str += con.SPADE
         else:
             tmp_str += str(self.color)
 
@@ -192,39 +66,39 @@ def draw_cards(cards, total_draws):
     return cards[-total_draws:]
 
 
-def check_combination(combinations, cards):
-    if royal_flush(cards):
-        combinations["royal_flush"] += 1
+def check_combination(combinations_stat, cards):
+    if cmb.royal_flush(cards):
+        combinations_stat["royal_flush"] += 1
         print("royal flush")
-    elif straight_flush(cards):
-        combinations["straight_flush"] += 1
+    elif cmb.straight_flush(cards):
+        combinations_stat["straight_flush"] += 1
         print("straight_flush")
-    elif four_of_a_kind(cards):
-        combinations["four_of_a_kind"] += 1
+    elif cmb.four_of_a_kind(cards):
+        combinations_stat["four_of_a_kind"] += 1
         print("4 of a kind")
-    elif full_house(cards):
-        combinations["full_house"] += 1
+    elif cmb.full_house(cards):
+        combinations_stat["full_house"] += 1
         print("full house")
-    elif flush(cards):
-        combinations["flush"] += 1
+    elif cmb.flush(cards):
+        combinations_stat["flush"] += 1
         print("flush")
-    elif straight(cards):
-        combinations["straight"] += 1
+    elif cmb.straight(cards):
+        combinations_stat["straight"] += 1
         print("straight")
-    elif three_of_a_kind(cards):
-        combinations["three_of_a_kind"] += 1
+    elif cmb.three_of_a_kind(cards):
+        combinations_stat["three_of_a_kind"] += 1
         print("3 of a kind")
-    elif two_pairs(cards):
-        combinations["two_pairs"] += 1
+    elif cmb.two_pairs(cards):
+        combinations_stat["two_pairs"] += 1
         print("2 pairs")
-    elif pair(cards):
-        combinations["pair"] += 1
+    elif cmb.pair(cards):
+        combinations_stat["pair"] += 1
         print("pair")
     else:
-        combinations["high_card"] += 1
+        combinations_stat["high_card"] += 1
         print("high card")
 
-    return combinations
+    return combinations_stat
 
 
 def print_statistics(actual, calculated):
@@ -235,7 +109,7 @@ def print_statistics(actual, calculated):
 
     print("-------------------------------------------\ncalculated Statistics:\n")
     for comb_type in calculated:
-        percentage = (calculated[comb_type] / constants.TOTAL_PLAYS) * 100
+        percentage = (calculated[comb_type] / con.TOTAL_PLAYS) * 100
         calculated[comb_type] = percentage
         print('%15s: %10.5f %%' % (comb_type, percentage))
     # print(calculated_statistics)
@@ -252,7 +126,7 @@ def print_statistics(actual, calculated):
 
 def main():
     # initialize poker_cards
-    poker_cards = init_cards(constants.COLORS, constants.SYMBOLS)
+    poker_cards = init_cards(con.COLORS, con.SYMBOLS)
 
     # initialize dictionaries for statistics
     calculated_statistics = {
@@ -281,8 +155,8 @@ def main():
     }
 
     # actual game logic: draw cards, check combination, increase statistics-counter
-    for i in range(constants.TOTAL_PLAYS + 1):
-        drawn_cards = draw_cards(poker_cards, constants.DRAW_CARDS)
+    for i in range(con.TOTAL_PLAYS + 1):
+        drawn_cards = draw_cards(poker_cards, con.DRAW_CARDS)
 
         # sort hand
         drawn_cards.sort(key=lambda c: c.value, reverse=False)
