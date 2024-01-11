@@ -78,18 +78,18 @@ Homework and other task regarding  the Python-part of SWP
 > * [X] Es gibt mehrere Abteilungen, jede(r) Mitarbeiter ist in einer Abteilung
 > * [X] Es gibt beide Geschlechter
 > * [X] es gibt nur einen Abteilungsleiter pro Abteilung
-> * [_] Mitarbeiter gehören immer zu einer Abteilung
+> * [ ] Mitarbeiter gehören immer zu einer Abteilung
 > * [X] ein Abteilungsleiter ist auch ein Mitarbeiter
 > 
 >Umsetzung:
 > * [X] modelliere die Objekte über Vererbung
-> * [_] erzeuge zum Schluss ein Firmenobjekt
+> * [ ] erzeuge zum Schluss ein Firmenobjekt
 >
 > programmiere folgende Methoden:
 > * [X] man muss alle Objekte instanzieren können
 > * [X] wieviele Mitarbeiter, Abteilungsleiter gibts in der Firma
 > * [X] wieviel Abteilungen gibt es
-> * [_] welche Abteilung hat die größte Mitarbeiterstärke
+> * [ ] welche Abteilung hat die größte Mitarbeiterstärke
 > * [X] wie ist der Prozentanteil Frauen Männer
 >
 > Maximiere die Logik-Kapselung...Methoden und Datenstrukturen sollten in den passenden Klassen implementiert werden.
