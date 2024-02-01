@@ -1,6 +1,7 @@
 import random
 import constants as con
 import combinations as cmb
+from decorator import timer
 
 
 class card:
@@ -47,7 +48,7 @@ def get_value(numerical_card, symbols):
         return 14
     return tmp_val
 
-
+@timer
 def init_cards(colors, symbols):
     # colors and symbols equal their quantities
     poker_cards = []
@@ -102,7 +103,7 @@ def check_combination(combinations_stat, cards):
 
 
 def print_statistics(actual, calculated):
-    print("-------------------------------------------\nacutal Statistics:\n")
+    print("-------------------------------------------\nactual Statistics:\n")
     for comb_type in actual:
         print('%15s: %10.5f %%' % (comb_type, actual[comb_type]))
     # print(actual_statistics)
@@ -124,6 +125,7 @@ def print_statistics(actual, calculated):
 # main
 ##############
 
+@timer
 def main():
     # initialize poker_cards
     poker_cards = init_cards(con.COLORS, con.SYMBOLS)
