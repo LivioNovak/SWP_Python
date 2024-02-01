@@ -97,3 +97,28 @@ Homework and other task regarding  the Python-part of SWP
 *Anmerkungen:*
 
 * Umsetzung so gut wie fertig, aber nicht getestet 
+
+
+---
+
+<br/>
+
+## Aufgabe 04: Schere-Stein-Papier (advanced)
+*Referenzmaterial:*
+
+https://bigbangtheory.fandom.com/de/wiki/Stein,_Papier,_Schere,_Echse,_Spock
+
+http://www.samkass.com/theories/RPSSL.html
+
+*Aufgabenstellung:*
+> * [X] Als Terminal-Spiel umsetzen
+> * [X] Spielmodi COMP vs PLAYER
+> * [X] zähle wer wie oft gewonnen
+> * [X] zähle alle gewählte Symbole
+> * [X] überlege wie die Daten dauerhaft gespeichert werden könnten
+> * [X] biete ein Menü an Spielen, Statistik
+
+*Anmerkungen:*
+
+* Es gibt zwei Spielmodi, Player vs Player & Player vs COM
+* Das Statistikmenü bietet recht viel Platz für Verbesserungen
