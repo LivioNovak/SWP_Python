@@ -89,7 +89,6 @@ def select_last(t_name):
     except:
         print('ERROR! Could not execute SQL statement!\n')
         return
-
     connection.close()
 '''
 
