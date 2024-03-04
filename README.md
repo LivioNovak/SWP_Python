@@ -62,6 +62,10 @@ Homework and other task regarding  the Python-part of SWP
   * four_of_a_kind()
   * full_house() 
  
+*Erweiterung 2.0:*
+
+* Timer-Decorator hinzugefügt (in decorator.py)
+* auf *def main* und def *init_cards* angewandt
 
 
 --- 
