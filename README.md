@@ -126,3 +126,12 @@ http://www.samkass.com/theories/RPSSL.html
 
 * Es gibt zwei Spielmodi, Player vs Player & Player vs COM
 * Das Statistikmenü bietet recht viel Platz für Verbesserungen
+
+
+*Erweiterung 2.0:*
+> * [X] gesammelte Daten der von den Spielern gewählte Symbolanzahl zu einem Webserver übertragen und in eine SQLite DB speichern
+
+* alten Code in den Order 'old game' verschoben
+* flask server und sqlite-db in order 'server' erstellt
+* anpassungen an 'cli.py' und 'statistics.py' vorgenommen
+* Konfiguration in 'config.ini' im order 'data'
