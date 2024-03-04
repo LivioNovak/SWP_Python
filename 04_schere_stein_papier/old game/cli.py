@@ -5,21 +5,54 @@ import statistic as stat
 
 def start(statistics, *set_mode):
     print('START NEW GAME:\n------------')
+    mode = 0
+    # get game-data and compute
+    while True:
+        # when empty, define game mode
+        if set_mode == ():
+            print('(player)\t-\tplay against another player\n'
+                  '(cpu)\t\t-\tplay against the cpu\n'
+                  '----')
 
-    # prepare
-    clear_console()
-    p1 = get_value()  # read input
+            mode = input().strip().lower()
+        else:
+            mode = set_mode[0]
 
-    # play game
-    c, res, statistics = play(statistics, p1)
-    print(f'Computer choose: \t{c}')
+        # read inputs and compare
+        if (mode == 'player') | (mode == 'p'):
+            clear_console()
 
-    if res == 1:
-        print('You win!')
-    elif res == -1:
-        print('You lose!')
-    else:
-        print('Draw!')
+            p1 = get_value(1)
+            p2 = get_value(2)
+            res, statistics = play(statistics, 1, p1, p2)
+
+            if res == 1:
+                print(f'{p1} beats {p2}\nPlayer 1 wins!')
+            elif res == -1:
+                print(f'{p2} beats {p1}\nPlayer 2 wins!')
+            else:
+                print('Draw!')
+
+            break
+
+        elif (mode == 'cpu') | (mode == 'c'):
+            clear_console()
+
+            p1 = get_value(1)
+            # play game
+            res, statistics = play(statistics, 2, p1)
+
+            if res == 1:
+                print('You win!')
+            elif res == -1:
+                print('You lose!')
+            else:
+                print('Draw!')
+
+            break
+
+        else:
+            print('invalid command')
 
     # replay
     while True:
@@ -29,7 +62,7 @@ def start(statistics, *set_mode):
         replay = input().strip().lower()
 
         if (replay == 'yes') | (replay == 'y'):
-            start(statistics)
+            start(statistics, mode)
             return statistics
 
         elif (replay == 'no') | (replay == 'n'):
@@ -39,9 +72,9 @@ def start(statistics, *set_mode):
             print('invalid command')
 
 
-def get_value():
+def get_value(player):
     while True:
-        print(f'Player, choose your symbol:\n'
+        print(f'Player {player}, choose your symbol:\n'
               '[0 = scissors, 1 = paper, 2 = rock, 3 = lizard, 4 = spock]\n'
               '----')
 
@@ -64,23 +97,11 @@ def clear_console():
 
 def stats(statistics):
     print('STATISTICS:\n------------')
+    # TODO: anzuzeigende Statistiken abfragen (gezogene Zeichen, pvp, pvc)
     print(statistics)
-    while True:
-        print('------\nSave Statistics in Database? [y/n]')
-        saving = input().strip().lower()
+    print('------\nproceed? [y/n]')
+    proceed = input().strip().lower()
 
-        if saving == 'y' or saving == 'yes':
-            print('Save in db...')
-            stat.save_in_db(statistics)
-            break
-
-        elif saving == 'n' or saving == 'no':
-            break
-
-        else:
-            print('invalid command')
-
-    print('Back to Menu')
 
 
 def rules():
@@ -91,8 +112,8 @@ def rules():
           'Lizard\t\t>\tPaper, Spock\n'
           'Spock\t\t>\tRock, Scissors\n')
     print('----')
-    print('Press [Enter] to proceed...')
-    input()
+    print('proceed? [y/n]')
+    proceed = input().strip().lower()
 
 
 def menu():

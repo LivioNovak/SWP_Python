@@ -1,10 +1,4 @@
 import json
-import requests
-import configparser
-
-# config-file
-config = configparser.ConfigParser()
-config.read('data/config.ini')
 
 
 def get_stats():
@@ -26,14 +20,3 @@ def increase_stats(stats, *keys):
 def save_stats(stats):
     f = open('./data/stats.txt', 'w')
     f.write(json.dumps(stats))
-
-
-def save_in_db(stats):
-    # get url from config-file
-    url = config['client']['url']
-
-    # call flask-service
-    res = requests.post(url, json=stats)
-    print(res.text)
-
-
